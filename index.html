@@ -1,33 +1,52 @@
 <!DOCTYPE html>
+
 <head>
-    <title>New Tab</title>
-    <link rel="stylesheet" href="./style.css">
-    <link href='https://fonts.googleapis.com/css?family=Rajdhani' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+  <title>New Tab</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href='https://fonts.googleapis.com/css?family=Rajdhani' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
 </head>
-    <body>
-      <div class="main-box">
-        <div class="data-box">
-          <div id="age" class="debug"></div>
-              <div class="life-box">
-                <div class="progress debug">
-                  <div class="progress-done debug">
-                    <span id="life" class="debug"> </span>
-                  </div>  
-            </div> 
-        </span>
-        <span>
-          
-        </span>
-        <footer class="debug">
-          Your time is limited, don't waste it living someone else's life. - Steve Jobs
-        </footer>
-        </div>
-       
-      </div>
-    
-    </body>
 
-    <script src="script.js"></script>
+<body>
+  <div class="main-box">
+    <div id="data-box">
+      <div id="age" class="debug">
+      </div>
+      <div id="life-box" class="life-box">
+        <div class="progress debug">
+          <div class="progress-done debug">
+            <span id="life" class="debug"> </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form onsubmit="handleSubmit(event)">
+    <div id="input-box">
+
+      
+        <div class="input-item">
+          <input required type="date" name="birthday" id="date" class="debug" placeholder="Date of Birth" />
+
+          <input required name="expectency" type="number"  step="any" min="5" max="100" id="life-expectancy" class="debug" placeholder="Life Expectancy (Years)" />
+        </div>
+
+        <button type="submit">Submit</button>
+          <p>
+          You can check expected life in various countries on this <a rel="noopener noreferrer" target="_blank" href="https://www.worlddata.info/life-expectancy.php"> Link </a> 
+          </p>
+    </div>
+  </form>
+    <footer class="debug">
+      Your time is limited, don't waste it living someone else's life. - Steve Jobs
+    </footer>
+  </div>
+
+  </div>
+
+</body>
+
+<script src="script.js"></script>
+
 </html>
