@@ -36,8 +36,6 @@ const quotes = [
     "Life is a one-time offer, use it well. - Unknown"
 ];
 
-
-
 var footerText = document.querySelector("#footer-text");
 var random = Math.floor(Math.random() * quotes.length);
 footerText.innerHTML = quotes[random];
