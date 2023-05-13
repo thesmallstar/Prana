@@ -157,6 +157,11 @@ button {
     background: #0F141C;
 }
 
+button.dark-mode {
+    color: black;
+    background: white;
+}
+
 button:hover {
     cursor: pointer;
 }
@@ -184,6 +189,10 @@ a {
     font-style: bold;
     color: green;
     text-decoration: none;
+}
+
+a.dark-mode {
+    color: #5BC93C;
 }
 
 form {

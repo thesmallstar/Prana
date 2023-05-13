@@ -25,13 +25,13 @@
         </div>
       </div>
     </div>
-    <form id="input-form" onsubmit="handleSubmit(event)">
+    <form id="input-form">
         <div id="input-box">
             <div class="input-item">
               <input required type="date" name="birthday" id="date" class="debug" placeholder="Date of Birth" />
               <input required name="expectency" type="number"  step="any" min="5" max="100" id="life-expectancy" class="debug" placeholder="Life Expectancy (Years)" />
             </div>
-            <button type="submit">Submit</button>
+            <button id="submitButton" type="submit">Submit</button>
               <p>
                 Enter Birthday and Life Expectancy <a rel="noopener noreferrer" target="_blank" href="https://www.worlddata.info/life-expectancy.php"> (Data for Life Expectency across countries) </a> 
               </p>

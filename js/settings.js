@@ -8,22 +8,42 @@ const editContainer = document.getElementsByClassName("edit-container")[0];
 const themeIcon = document.getElementById("theme-icon");
 const editIcon = document.getElementById("edit-icon");
 
+function addDarkModeIfExists(element) {
+    if(element){
+        element.classList.add("dark-mode");
+    }
+}
+
+function removeDarkModeIfExists(element) {
+    if(element){
+        element.classList.remove("dark-mode");
+    }
+}
+
+/* Need to refactor this function, looks ugly. */
 function applyDarkOrLightMode(theme) {
     if (theme === "dark") {
         document.body.classList.add("dark-mode");
-        document.getElementsByClassName("main-box")[0].classList.add("dark-mode");
-        document.getElementsByClassName("progress")[0].classList.add("dark-mode");
-        document.getElementById("age").classList.add("dark-mode");
-        document.getElementById("life").classList.add("dark-mode");
-        document.getElementsByClassName("line")[0].classList.add("dark-mode");
-
+        addDarkModeIfExists(document.getElementsByClassName("main-box")[0]);
+        addDarkModeIfExists(document.getElementsByClassName("progress")[0]);
+        addDarkModeIfExists(document.getElementById("age"));
+        addDarkModeIfExists(document.getElementById("life"));
+        addDarkModeIfExists(document.getElementsByClassName("line")[0]);
+        addDarkModeIfExists(document.getElementById("submitButton"));
+        document.getElementsByName("a").forEach(element => {
+            element.classList.add("dark-mode");
+        });
     } else {
         document.body.classList.remove("dark-mode");
-        document.getElementsByClassName("main-box")[0].classList.remove("dark-mode");
-        document.getElementsByClassName("progress")[0].classList.remove("dark-mode");
-        document.getElementById("age").classList.remove("dark-mode");
-        document.getElementById("life").classList.remove("dark-mode");
-        document.getElementsByClassName("line")[0].classList.remove("dark-mode");
+        removeDarkModeIfExists(document.getElementsByClassName("main-box")[0]);
+        removeDarkModeIfExists(document.getElementsByClassName("progress")[0]);
+        removeDarkModeIfExists(document.getElementById("age"));
+        removeDarkModeIfExists(document.getElementById("life"));
+        removeDarkModeIfExists(document.getElementsByClassName("line")[0]);
+        removeDarkModeIfExists(document.getElementById("submitButton"));
+        document.getElementsByName("a").forEach(element => {
+            element.classList.remove("dark-mode");
+        });
     }
 }
 
