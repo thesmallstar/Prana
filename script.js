@@ -110,12 +110,16 @@ function showInputScreen() {
     document.getElementById("input-form").style.display = "block";
 }
 
-function main() {
+function showEditScreen() {
+    chrome.storage.sync.set(/* String or Array */{"birthday":null, "expectency":null}, function(data){
+        window.location.reload();
+    });
+}
 
+function main() {
     var element = document.getElementById('data-box');
     element.remove();
     chrome.storage.sync.get(/* String or Array */["birthday", "expectency"], function(data){
-        console.log(data);
         birthday = new Date(data.birthday);
         expectency = data.expectency;
         if(data.birthday == null){
@@ -129,10 +133,92 @@ function main() {
     });
    
 }
-const form = document.querySelector("form");
-form.addEventListener("submit", handleSubmit);
+
+const sun = "https://www.uplooder.net/img/image/55/7aa9993fc291bc170abea048589896cf/sun.svg";
+const moon = "https://www.uplooder.net/img/image/2/addf703a24a12d030968858e0879b11e/moon.svg"
+const editLight = "edit_white.svg";
+const editDark = "edit_black.svg";
+
+const themeContainer = document.getElementsByClassName("theme-container")[0];
+const editContainer = document.getElementsByClassName("edit-container")[0];
+const themeIcon = document.getElementById("theme-icon");
+const editIcon = document.getElementById("edit-icon");
+
+function applyDarkOrLightMode(theme) { 
+        if(theme === "dark"){       
+                document.body.classList.add("dark-mode");
+                document.getElementsByClassName("main-box")[0].classList.add("dark-mode");
+                document.getElementsByClassName("progress")[0].classList.add("dark-mode");
+                document.getElementById("age").classList.add("dark-mode");
+                document.getElementById("life").classList.add("dark-mode");
+        } else {
+            document.body.classList.remove("dark-mode");
+            document.getElementsByClassName("main-box")[0].classList.remove("dark-mode");
+            document.getElementsByClassName("progress")[0].classList.remove("dark-mode");
+            document.getElementById("age").classList.remove("dark-mode");
+            document.getElementById("life").classList.remove("dark-mode");
+        }
+}
+
+
+function setTheme() {
+    chrome.storage.sync.get(/* String or Array */["darkMode"], function(data){
+        if(data.darkMode) {
+            setLight(true);
+        }
+         else {
+            setDark(true);
+        }
+    });
+}
+
+function setLight(animationRequried) {
+    themeContainer.classList.remove("shadow-dark");
+    setTimeout(() => {
+    themeContainer.classList.add("shadow-light");
+      themeIcon.classList.remove("change");
+    }, 300);
+
+    if(animationRequried) {
+        themeIcon.classList.add("change");
+    }
+    themeIcon.src = sun;
+    editIcon.src = editDark;
+
+    chrome.storage.sync.set(/* String or Array */{"darkMode" : false}, function(data) {});
+    applyDarkOrLightMode("light");
+}
+
+function setDark(animationRequried) {
+    setTimeout(() => {
+     themeContainer.classList.add("shadow-dark");
+      themeIcon.classList.remove("change");
+    }, 300);
+
+    if(animationRequried) {
+        themeIcon.classList.add("change");
+    }
+    themeIcon.src = moon;
+    editIcon.src = editLight;
+
+    chrome.storage.sync.set(/* String or Array */{"darkMode" : true}, function(data) {});
+    applyDarkOrLightMode("dark");
+}
 
 window.onload = (event) => {
     main();
+    chrome.storage.sync.get(/* String or Array */["darkMode"], function(data){
+        if(data.darkMode) {
+            setDark(false);
+        } else {
+           setLight(false);
+        }
+    });
 };
 
+const form = document.querySelector("form");
+
+
+form.addEventListener("submit", handleSubmit);
+themeContainer.addEventListener("click", setTheme);
+editContainer.addEventListener("click", showEditScreen);

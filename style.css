@@ -1,12 +1,12 @@
 
-
-body {
-    background: linear-gradient(135deg, #FAFAFA 0%, #E5F0E1 100%) fixed;
-}
-
 body {
     font-family: 'Rajdhani';
     font-style: normal;
+    background: linear-gradient(135deg, #FAFAFA 0%, #E5F0E1 100%) fixed;
+}
+
+body.dark-mode {
+    background: linear-gradient(0deg, rgba(8, 8, 7, 0.75), rgba(8, 8, 7, 0.75)), #23395A fixed;
 }
 
 #age {
@@ -20,6 +20,11 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 250px;
+    align-items: center;
+}
+
+#age.dark-mode {
+    color: #FFFFFF !important;
 }
 
 sup {
@@ -47,10 +52,16 @@ sup {
     border: 1px solid gray;
 }
 
+#life.dark-mode {
+    background: linear-gradient(0deg, rgba(15, 20, 28, 0.58), rgba(15, 20, 28, 0.58)), #21262D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
 .main-box { 
     display: flex;
     /* spread out */
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-direction: column;
    
 
@@ -70,11 +81,21 @@ sup {
     transform: translate(-50%, -50%);
 }
 
+.main-box.dark-mode {
+     background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.07) 100%) fixed;
+    color: white !important;
+}
+
+
 .progress {
     height: 9px;
     width: 90%;
     background-color: #E5F0E1;
     border-radius: 20px;
+}
+
+.progress.dark-mode {
+    background: rgba(229, 240, 225, 0.15);
 }
   
 .progress-done {
@@ -108,7 +129,7 @@ footer {
     position: absolute;
     width: 100%;
     text-align: center;
-    margin-top: 400px;
+    margin-top: 300px;
     font-size: large;
 }
 
@@ -189,4 +210,34 @@ form {
     src: url(https://fonts.gstatic.com/s/rajdhani/v15/LDIxapCSOBg7S-QT7p4HM-aGW-rO.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
+  
+.setting {
+    position: fixed;
+    right: 20px;
+    top: 10px;
+    display: flex;
+    width: auto;
+    align-items: space-between;
+    justify-content: center;
+}
+
+  
+
+  
+  @keyframes change {
+    0% {
+      transform: scale(1);
+    }
+  
+    100% {
+      transform: scale(1.4);
+    }
+  }
+  
+.change {
+    animation-name: change;
+    animation-duration: 1s;
+    animation-direction: alternate;
+  }
+
   
