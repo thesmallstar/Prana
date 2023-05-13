@@ -1,7 +1,7 @@
 
 /* Birthday Helpers */
-const LEAP_YEAR_MILLISECONDS = 366*1000*24*3600;
-const NORMAL_YEAR_MILLISECONDS = 365*1000*24*3600;
+const LEAP_YEAR_MILLISECONDS = 366 * 1000 * 24 * 3600;
+const NORMAL_YEAR_MILLISECONDS = 365 * 1000 * 24 * 3600;
 const AGE = "age";
 const LIFE = "life";
 
@@ -36,7 +36,7 @@ function calculateAge(birthday) {
     let birthdayThisYear = new Date(new Date().getFullYear(), birthday.getMonth(), birthday.getDate());
     let leapTotalTime = checkIfLeapYearAndReturnTotalTime(birthdayThisYear.getFullYear());
 
-    if(isBirthdayPassed) {
+    if (isBirthdayPassed) {
         let age = new Date().getFullYear() - birthday.getFullYear();
         let timePassed = (new Date().getTime() - birthdayThisYear.getTime());
         age += timePassed / leapTotalTime;
@@ -50,7 +50,7 @@ function calculateAge(birthday) {
 }
 
 function getLifePassedPercentage(age, expectency) {
-    return ((age/expectency)*100).toFixed(8)+ "%";
+    return ((age / expectency) * 100).toFixed(8) + "%";
 }
 
 /* birthday utils end */
@@ -62,7 +62,7 @@ function boldDataBeforeDecimalAndAddSubscript(decimalNumber) {
     return "<b>" + number.substring(0, index) + "</b><sup>" + number.substring(index) + "</sup>";
 }
 
-function boldDataBeforeDecimal(decimalNumber){
+function boldDataBeforeDecimal(decimalNumber) {
     let number = decimalNumber.toString();
     let index = number.indexOf(".");
     return "<b>" + number.substring(0, index) + "</b>" + number.substring(index);
@@ -74,7 +74,7 @@ let expectency = 100;
 function setAge() {
     let age = calculateAge(birthday);
     document.getElementById(AGE).innerHTML = boldDataBeforeDecimalAndAddSubscript(age);
-    document.getElementById(LIFE).innerHTML =  boldDataBeforeDecimal(getLifePassedPercentage(age, expectency));
+    document.getElementById(LIFE).innerHTML = boldDataBeforeDecimal(getLifePassedPercentage(age, expectency));
 }
 
 function loadAgeView() {
@@ -98,11 +98,11 @@ function handleSubmit(event) {
     const formData = new FormData(form); // create a FormData object from the form data
     // iterate over the FormData entries and log them to the console
     for (let [name, value] of formData) {
-        chrome.storage.sync.set({[name]: value}, function() {});
+        chrome.storage.sync.set({ [name]: value }, function () { });
         console.log(name, value)
     }
 
-   window.location.reload();
+    window.location.reload();
 }
 
 
@@ -111,7 +111,7 @@ function showInputScreen() {
 }
 
 function showEditScreen() {
-    chrome.storage.sync.set(/* String or Array */{"birthday":null, "expectency":null}, function(data){
+    chrome.storage.sync.set(/* String or Array */{ "birthday": null, "expectency": null }, function (data) {
         window.location.reload();
     });
 }
@@ -119,10 +119,10 @@ function showEditScreen() {
 function main() {
     var element = document.getElementById('data-box');
     element.remove();
-    chrome.storage.sync.get(/* String or Array */["birthday", "expectency"], function(data){
+    chrome.storage.sync.get(/* String or Array */["birthday", "expectency"], function (data) {
         birthday = new Date(data.birthday);
         expectency = data.expectency;
-        if(data.birthday == null){
+        if (data.birthday == null) {
             showInputScreen();
         } else {
             document.getElementsByClassName("main-box")[0].appendChild(element);
@@ -131,7 +131,7 @@ function main() {
             loadAgeView();
         }
     });
-   
+
 }
 
 const sun = "https://www.uplooder.net/img/image/55/7aa9993fc291bc170abea048589896cf/sun.svg";
@@ -144,29 +144,32 @@ const editContainer = document.getElementsByClassName("edit-container")[0];
 const themeIcon = document.getElementById("theme-icon");
 const editIcon = document.getElementById("edit-icon");
 
-function applyDarkOrLightMode(theme) { 
-        if(theme === "dark"){       
-                document.body.classList.add("dark-mode");
-                document.getElementsByClassName("main-box")[0].classList.add("dark-mode");
-                document.getElementsByClassName("progress")[0].classList.add("dark-mode");
-                document.getElementById("age").classList.add("dark-mode");
-                document.getElementById("life").classList.add("dark-mode");
-        } else {
-            document.body.classList.remove("dark-mode");
-            document.getElementsByClassName("main-box")[0].classList.remove("dark-mode");
-            document.getElementsByClassName("progress")[0].classList.remove("dark-mode");
-            document.getElementById("age").classList.remove("dark-mode");
-            document.getElementById("life").classList.remove("dark-mode");
-        }
+function applyDarkOrLightMode(theme) {
+    if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+        document.getElementsByClassName("main-box")[0].classList.add("dark-mode");
+        document.getElementsByClassName("progress")[0].classList.add("dark-mode");
+        document.getElementById("age").classList.add("dark-mode");
+        document.getElementById("life").classList.add("dark-mode");
+        document.getElementsByClassName("line")[0].classList.add("dark-mode");
+
+    } else {
+        document.body.classList.remove("dark-mode");
+        document.getElementsByClassName("main-box")[0].classList.remove("dark-mode");
+        document.getElementsByClassName("progress")[0].classList.remove("dark-mode");
+        document.getElementById("age").classList.remove("dark-mode");
+        document.getElementById("life").classList.remove("dark-mode");
+        document.getElementsByClassName("line")[0].classList.remove("dark-mode");
+    }
 }
 
 
 function setTheme() {
-    chrome.storage.sync.get(/* String or Array */["darkMode"], function(data){
-        if(data.darkMode) {
+    chrome.storage.sync.get(/* String or Array */["darkMode"], function (data) {
+        if (data.darkMode) {
             setLight(true);
         }
-         else {
+        else {
             setDark(true);
         }
     });
@@ -175,49 +178,48 @@ function setTheme() {
 function setLight(animationRequried) {
     themeContainer.classList.remove("shadow-dark");
     setTimeout(() => {
-    themeContainer.classList.add("shadow-light");
-      themeIcon.classList.remove("change");
+        themeContainer.classList.add("shadow-light");
+        themeIcon.classList.remove("change");
     }, 300);
 
-    if(animationRequried) {
+    if (animationRequried) {
         themeIcon.classList.add("change");
     }
     themeIcon.src = sun;
     editIcon.src = editDark;
 
-    chrome.storage.sync.set(/* String or Array */{"darkMode" : false}, function(data) {});
+    chrome.storage.sync.set(/* String or Array */{ "darkMode": false }, function (data) { });
     applyDarkOrLightMode("light");
 }
 
 function setDark(animationRequried) {
     setTimeout(() => {
-     themeContainer.classList.add("shadow-dark");
-      themeIcon.classList.remove("change");
+        themeContainer.classList.add("shadow-dark");
+        themeIcon.classList.remove("change");
     }, 300);
 
-    if(animationRequried) {
+    if (animationRequried) {
         themeIcon.classList.add("change");
     }
     themeIcon.src = moon;
     editIcon.src = editLight;
 
-    chrome.storage.sync.set(/* String or Array */{"darkMode" : true}, function(data) {});
+    chrome.storage.sync.set(/* String or Array */{ "darkMode": true }, function (data) { });
     applyDarkOrLightMode("dark");
 }
 
 window.onload = (event) => {
     main();
-    chrome.storage.sync.get(/* String or Array */["darkMode"], function(data){
-        if(data.darkMode) {
+    chrome.storage.sync.get(/* String or Array */["darkMode"], function (data) {
+        if (data.darkMode) {
             setDark(false);
         } else {
-           setLight(false);
+            setLight(false);
         }
     });
 };
 
 const form = document.querySelector("form");
-
 
 form.addEventListener("submit", handleSubmit);
 themeContainer.addEventListener("click", setTheme);
