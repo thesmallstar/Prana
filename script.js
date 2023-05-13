@@ -107,12 +107,13 @@ function handleSubmit(event) {
 
 
 function showInputScreen() {
-    var element = document.getElementById('data-box');
-    element.remove();
+    document.getElementById("input-form").style.display = "block";
 }
 
 function main() {
 
+    var element = document.getElementById('data-box');
+    element.remove();
     chrome.storage.sync.get(/* String or Array */["birthday", "expectency"], function(data){
         console.log(data);
         birthday = new Date(data.birthday);
@@ -120,6 +121,7 @@ function main() {
         if(data.birthday == null){
             showInputScreen();
         } else {
+            document.getElementsByClassName("main-box")[0].appendChild(element);
             birthday = new Date(data.birthday);
             expectency = data.expectency;
             loadAgeView();
@@ -127,9 +129,6 @@ function main() {
     });
    
 }
-
-
-
 const form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
 
