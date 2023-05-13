@@ -134,10 +134,10 @@ function main() {
 
 }
 
-const sun = "https://www.uplooder.net/img/image/55/7aa9993fc291bc170abea048589896cf/sun.svg";
-const moon = "https://www.uplooder.net/img/image/2/addf703a24a12d030968858e0879b11e/moon.svg"
-const editLight = "edit_white.svg";
-const editDark = "edit_black.svg";
+const sun = "../svg/sun.svg";
+const moon = "../svg/moon.svg";
+const editLight = "../svg/edit_white.svg";
+const editDark = "../svg/edit_black.svg";
 
 const themeContainer = document.getElementsByClassName("theme-container")[0];
 const editContainer = document.getElementsByClassName("edit-container")[0];
