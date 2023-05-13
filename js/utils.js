@@ -48,7 +48,7 @@ function calculateAge(birthday) {
 }
 
 function getLifePassedPercentage(age, expectency) {
-    return ((age / expectency) * 100).toFixed(8) + "%";
+    return Math.min(100, ((age / expectency) * 100)).toFixed(8) + "%";
 }
 
 /* HTML utils */
