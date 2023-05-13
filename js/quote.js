@@ -33,8 +33,11 @@ const quotes = [
     "Life is  like riding a bicycle. To keep your balance, you must keep moving. - Albert Einstein",
     "The purpose of our lives is to be happy. - Dalai Lama",
     "Don't wait for life to happen, make it happen. - Unknown",
-    "Life is a one-time offer, use it well. - Unknown"];
+    "Life is a one-time offer, use it well. - Unknown"
+];
 
-var quote = document.getElementById("quote");
+
+
+var footerText = document.querySelector("#footer-text");
 var random = Math.floor(Math.random() * quotes.length);
-quote.innerHTML = quotes[random];
+footerText.innerHTML = quotes[random];

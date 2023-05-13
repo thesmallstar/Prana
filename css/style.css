@@ -64,10 +64,8 @@ sup {
     justify-content: flex-start;
     flex-direction: column;
     padding: 16px 14px 18px;
-    min-width: 600px;
-    max-width: 600px;
-    min-height: 180px;
-    max-height: 180px;
+    width: 600px;
+    height: 180px;
     background: #FFFFFF;
     box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
@@ -84,6 +82,9 @@ sup {
     color: white !important;
 }
 
+.main-box.is-input-page {
+    height: 140px;
+}
 
 .progress {
     height: 9px;
@@ -181,7 +182,7 @@ p {
 
 a {
     font-style: bold;
-    color: blue;
+    color: green;
     text-decoration: none;
 }
 
@@ -246,4 +247,12 @@ form {
     animation-name: change;
     animation-duration: 1s;
     animation-direction: alternate;
+}
+
+#footer-text.is-input-page {
+    display: none;
+}
+
+#about-me {
+    display: none;
 }

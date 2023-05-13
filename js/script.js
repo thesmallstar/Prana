@@ -105,9 +105,11 @@ function handleSubmit(event) {
     window.location.reload();
 }
 
-
 function showInputScreen() {
     document.getElementById("input-form").style.display = "block";
+    document.getElementsByClassName("main-box")[0].classList.add("is-input-page");
+    document.getElementById("footer-text").classList.add("is-input-page");
+    document.getElementById("about-me").style.display = "block";
 }
 
 function showEditScreen() {
