@@ -2,11 +2,17 @@
     "manifest_version": 3,
     "name": "WhereInLife",
     "version": "1.0",
-    "description": "Constant reminder that your time is limited.",
+    "description": "Live age and life percentage on a new tab that gives a constant reminder that your time is limited.",
     "chrome_url_overrides": {
       "newtab": "index.html"
     },
     "permissions":[
       "storage"
-    ]
+    ],
+    "icons": {
+      "16": "./assets/favicon/icon16.png",
+      "32": "./assets/favicon/icon32.png",
+      "48": "./assets/favicon/icon48.png",
+      "128": "./assets/favicon/icon128.png"
+    }
   }

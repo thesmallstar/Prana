@@ -1,7 +1,7 @@
-const sun = "../svg/sun.svg";
-const moon = "../svg/moon.svg";
-const editLight = "../svg/edit_white.svg";
-const editDark = "../svg/edit_black.svg";
+const sun = "../assets/svg/sun.svg";
+const moon = "../assets/svg/moon.svg";
+const editLight = "../assets/svg/edit_white.svg";
+const editDark = "../assets/svg/edit_black.svg";
 
 const themeContainer = document.getElementsByClassName("theme-container")[0];
 const editContainer = document.getElementsByClassName("edit-container")[0];

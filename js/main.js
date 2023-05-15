@@ -5,7 +5,6 @@ function setAge() {
 }
 
 function loadAgeView() {
-
     var element = document.getElementById('input-box');
     element.remove();
 

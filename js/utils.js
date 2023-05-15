@@ -1,6 +1,6 @@
 /* Birthday Helpers */
-const LEAP_YEAR_MILLISECONDS = 366 * 1000 * 24 * 3600;
-const NORMAL_YEAR_MILLISECONDS = 365 * 1000 * 24 * 3600;
+const LEAP_YEAR_MILLISECONDS = 31622400000;
+const NORMAL_YEAR_MILLISECONDS = 31536000000;
 const AGE = "age";
 const LIFE = "life";
 
