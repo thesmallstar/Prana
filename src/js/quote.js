@@ -33,7 +33,8 @@ const quotes = [
     "Life is  like riding a bicycle. To keep your balance, you must keep moving. - Albert Einstein",
     "The purpose of our lives is to be happy. - Dalai Lama",
     "Don't wait for life to happen, make it happen. - Unknown",
-    "Life is a one-time offer, use it well. - Unknown"
+    "Life is a one-time offer, use it well. - Unknown",
+    "Bound by time, you are in haste. Rooted in the Eternal, you are governed by Grace. - SG"
 ];
 
 var footerText = document.querySelector("#footer-text");
