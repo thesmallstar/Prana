@@ -6,7 +6,7 @@ const LIFE = "life";
 
 function checkIfLeapYearAndReturnTotalTime(year) {
     if (year % 4 === 0) {
-        return LEAPY_YEAR_MILLISECONDS;
+        return LEAP_YEAR_MILLISECONDS;
     }
     return NORMAL_YEAR_MILLISECONDS;
 }
